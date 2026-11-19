@@ -1,12 +1,12 @@
-// Add your Gumroad product URL here after creating the product.
-const GUMROAD_CHECKOUT_URL = "PASTE_GUMROAD_PRODUCT_URL_HERE";
+// Everleaf Reading Co. — official Gumroad checkout
+const GUMROAD_CHECKOUT_URL = "https://bloomoraa.gumroad.com/l/thoughtful-book-club-kit";
 const button = document.getElementById("buyButton");
-if (GUMROAD_CHECKOUT_URL.startsWith("https://")) {
+
+if (button) {
   button.href = GUMROAD_CHECKOUT_URL;
-} else {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    alert("The Gumroad checkout link will be connected before launch.");
-  });
+  button.target = "_blank";
+  button.rel = "noopener noreferrer";
 }
-document.getElementById("year").textContent = new Date().getFullYear();
+
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
