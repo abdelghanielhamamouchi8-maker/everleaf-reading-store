@@ -12,3 +12,29 @@ a:focus-visible,summary:focus-visible{outline:3px solid #c09b5b;outline-offset:4
 @media(max-width:720px){.site-header{height:68px;padding:0 5%;gap:10px}.brand{font-size:16px}.brand-mark{font-size:28px}.brand small{font-size:7px}.main-nav{display:none}.header-cta{font-size:11px;padding:10px 13px}.hero{grid-template-columns:1fr;padding:54px 6% 62px;text-align:center;gap:28px}.hero-copy>.eyebrow{justify-content:center;font-size:9px}.hero h1{font-size:clamp(43px,10vw,62px);margin:18px auto}.hero-lead{font-size:15px;margin-left:auto;margin-right:auto}.download-note{margin-bottom:20px}.pills{justify-content:center}.hero-visual{height:360px}.book-mockup{width:min(68%,285px)}.floating-note{right:7%;bottom:18px}.promise{padding:25px 6% 45px}.promise h2{font-size:34px}.section-wrap{padding-left:6%;padding-right:6%}.inside{padding-top:35px;padding-bottom:65px}.feature-grid{grid-template-columns:1fr 1fr;gap:10px}.feature-card{padding:16px 12px;gap:9px;min-height:155px;align-items:flex-start}.feature-icon{font-size:27px;min-width:30px}.feature-card h3{font-size:17px}.feature-card p{font-size:11px}.feature-card small{width:24px;height:24px}.preview-section{padding:65px 6%}.preview-gallery{grid-template-columns:repeat(2,1fr);gap:15px}.preview-gallery figure:nth-child(even){padding-top:20px}.benefits{grid-template-columns:1fr;gap:25px;padding-top:65px;padding-bottom:65px}.benefit-art{min-height:320px}.product-banner{grid-template-columns:1fr;width:90%;padding:22px;margin-bottom:65px;gap:18px}.banner-image{grid-row:auto;height:190px}.banner-copy h2{font-size:38px}.banner-action{grid-column:auto;align-items:stretch}.gold-btn{white-space:normal}.faq{padding-bottom:65px}.faq summary{font-size:16px}.final-cta{padding:65px 7%}.final-cta h2{font-size:38px}}
 @media(max-width:420px){.feature-grid{grid-template-columns:1fr}.feature-card{min-height:120px}.hero-visual{height:310px}.book-mockup{width:66%}.pills span{font-size:10px}.primary-btn{font-size:16px;padding:13px 18px}.preview-gallery img{padding:5px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Immersive 3D book experience */
+.hero{overflow:hidden;min-height:650px;background:radial-gradient(ellipse at 77% 48%,#e4d7b8 0,transparent 38%),linear-gradient(115deg,#fbf7ed,#f0e7d5)}
+.hero-visual{height:550px;perspective:1500px;isolation:isolate}
+.book-scene{position:relative;width:100%;height:100%;display:grid;place-items:center;transform-style:preserve-3d}
+.orbit{position:absolute;border:1px solid #b99b5b55;border-radius:50%;transform:rotateX(68deg) rotateZ(-18deg);pointer-events:none}
+.orbit-one{width:440px;height:440px}.orbit-two{width:540px;height:540px;border-style:dashed;opacity:.55;transform:rotateX(68deg) rotateZ(35deg)}
+.book-shadow{position:absolute;width:310px;height:65px;bottom:78px;left:50%;transform:translateX(-44%) rotate(-8deg);background:#27342555;filter:blur(27px);border-radius:50%}
+.book-3d{--rx:-4deg;--ry:-24deg;position:relative;width:285px;height:390px;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(-3deg);transition:transform .12s ease-out;cursor:grab;filter:drop-shadow(24px 28px 18px #24332538);outline:none}
+.book-3d:active{cursor:grabbing}
+.book-front{position:absolute;inset:0;overflow:hidden;transform:translateZ(18px);border:7px solid #e9dec7;box-shadow:inset 0 0 0 1px #b8a77f}
+.book-front img{width:100%;height:100%;object-fit:cover;display:block}
+.book-back{position:absolute;inset:0;background:linear-gradient(145deg,#244b35,#102c20);transform:translateZ(-18px)}
+.book-spine{position:absolute;top:0;bottom:0;left:-36px;width:36px;transform:rotateY(-90deg) translateZ(18px);transform-origin:right center;background:linear-gradient(90deg,#0f2a1e,#416343 35%,#183a29 80%,#0c241a);border-left:2px solid #c8a65d}
+.book-pages{position:absolute;top:5px;bottom:5px;right:-31px;width:32px;transform:rotateY(90deg) translateZ(0);transform-origin:left center;background:repeating-linear-gradient(90deg,#f8f0df 0 3px,#d8cbb1 3px 4px);box-shadow:5px 2px 7px #0002}
+.book-pages i{position:absolute;inset:0 auto 0 7px;width:1px;background:#cbbd9f}
+.book-top,.book-bottom{position:absolute;left:0;right:0;height:36px;background:repeating-linear-gradient(0deg,#f8f0df 0 3px,#d8cbb1 3px 4px)}
+.book-top{top:-18px;transform:rotateX(90deg);transform-origin:bottom}.book-bottom{bottom:-18px;transform:rotateX(-90deg);transform-origin:top}
+.floating-note{right:1%;bottom:70px}.float-chip{position:absolute;z-index:4;padding:11px 16px;background:#fffaf0e8;border:1px solid #d8c69f;border-radius:30px;box-shadow:0 12px 25px #44351b18;font-size:11px;font-weight:700;color:#294632;backdrop-filter:blur(10px);animation:chipFloat 5s ease-in-out infinite}
+.chip-one{top:82px;right:0}.chip-two{bottom:115px;left:-3%;animation-delay:-2.5s}
+.book-hint{position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.18em;color:#8b744a;white-space:nowrap}
+.book-hint span{font-size:17px;vertical-align:middle;margin-right:7px}
+@keyframes chipFloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@media(max-width:720px){.hero{min-height:auto}.hero-visual{height:460px;margin-top:0}.book-3d{width:230px;height:320px}.book-spine{left:-30px;width:30px}.book-pages{right:-26px;width:27px}.orbit-one{width:340px;height:340px}.orbit-two{width:420px;height:420px}.chip-one{right:0;top:55px}.chip-two{left:0;bottom:95px}.book-hint{bottom:8px}.book-shadow{bottom:68px}}
+@media(prefers-reduced-motion:reduce){.float-chip{animation:none}}
